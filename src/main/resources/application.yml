@@ -1,0 +1,38 @@
+spring:
+  main:
+    banner-mode: "OFF"
+  profiles:
+    active: dev
+
+server:
+  port: 8000
+  compression:
+    enabled: true
+    mime-types: application/json
+
+#hystrix:
+#  command:
+#    MyService#getUsersFromAnotherService(int):
+#      execution:
+#        isolation:
+#          strategy: SEMAPHORE
+
+hystrix.command.default.execution.isolation.strategy: SEMAPHORE
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 800
+
+ribbon:
+  ConnectTimeout: 1000
+  ReadTimeout: 2000
+  MaxAutoRetries: 1
+
+
+springfox.documentation.swagger.v2.path: /schema
+
+security:
+  user:
+    name: "asyncsyncendpoint-iloauf41p74msmjqi416fqvr7vspq38v4o0397rtbjefo9s5h30"
+    password: "asyncsyncendpoint-1aaq489fvvcf10bv2bnn39iaqk8tbt73ddbtkaam8h2mbfcml7ku"
+
+management:
+  security:
+    roles: SUPERUSER

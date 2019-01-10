@@ -1,0 +1,17 @@
+docker:
+  host: "${DOCKER_IP:localhost}"
+
+eureka:
+  client:
+    enabled: true
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${docker.host}:10000/eureka/v2/
+
+server:
+  tomcat:
+    max-connections: 40
+    accept-count: 1
+    max-threads: 2
+    min-spare-threads: 2
